@@ -1,0 +1,21 @@
+.painel-animado.ng-leave-active{
+    transform: scale(0.1);
+}
+.painel-animado{
+    transition: transform 0.8s;
+}
+.container-formulario{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+.formulario-cadastro{
+    width:80%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+.dupla{
+    display:flex;
+    justify-content: center;
+}

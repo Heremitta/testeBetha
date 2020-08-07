@@ -1,0 +1,33 @@
+<div class="page-header text-center">
+    <h1>Bem Vindo</h1>
+    <div class="row d-flex align-items-center justify-content-center"> 
+        <p class="alert alert-info" ng-show="mensagem.length">{{mensagem}}</p>
+        <form novalidate name="formulario" class="col-md-4 " ng-submit="submeterLogin()">
+            <div class="col-md-12">
+                <h3>Login</h3>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input ng-model="login.email" name="email" class="form-control" required>
+                    <span ng-show="formulario.$submitted && formulario.email.$error.required" class="form-control alert-danger">
+                        campo de E-mail é obrigatório
+                    </span> 
+                    <span ng-show="validaEmail" class="form-control alert-danger">
+                        E-mail inválido
+                    </span> 
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input ng-model="login.senha" name="senha" class="form-control" required>
+                    <span ng-show="formulario.$submitted && formulario.senha.$error.required" class="form-control alert-danger">
+                        campo de Senha é obrigatório
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+                    Logar
+                </button>
+                <a href="/login/novo" class="btn btn-success" meu-focus>Cadastrar</a>
+                <hr>
+            </div>
+        </form>
+    </div>    
+</div>

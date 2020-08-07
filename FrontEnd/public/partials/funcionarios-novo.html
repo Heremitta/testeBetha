@@ -1,0 +1,43 @@
+<div class="page-header text-center">
+    <h1>Cadastrar novo funcionario</h1>
+    <p class="alert alert-info" ng-show="mensagem.length">{{mensagem}}</p>
+    <div class="container-formulario row d-flex align-items-center justify-content-center"> 
+        <form novalidate name="formulario" class="col-md-4 formulario-cadastro" ng-submit="submeter(funcionario)">
+            <div class="col-md-12">
+                <h3>funcionario</h3>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input ng-model="funcionario.nome" name="nome" class="form-control" required>
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">
+                        campo de Nome é obrigatório
+                    </span> 
+                </div>
+                <div class="dupla">
+                    <div class="form-group">
+                        <label>Cpf</label>
+                        <input ng-model="funcionario.cpf" name="cpf" class="form-control" required>
+                        <span ng-show="formulario.$submitted && formulario.cpf.$error.required" class="form-control alert-danger">
+                            campo de Cpf é obrigatório
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input ng-model="funcionario.dataNasc" name="dataNasc" class="form-control" type="date" required >
+                        <span ng-show="formulario.$submitted && formulario.dataNasc.$error.required" class="form-control alert-danger">
+                            campo de Data de Nascimento é obrigatório
+                        </span>
+                    </div>
+                </div>
+                <div class="dupla">
+                    <telefones  telefone="telefones" acao="adicionarTelefone()" remove="removerTelefone" check="checkB" ></telefones>
+                    <enderecos  endereco="enderecos" acao="adicionarEndereco()" remove="removerEndereco" check="checkB" ></enderecos>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+                    Enviar
+                </button>
+                <a href="/funcionarios" class="btn btn-primary" meu-focus>Voltar</a>
+                <hr>
+            </div>
+        </form>
+    </div>    
+</div>

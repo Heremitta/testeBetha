@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label>Endereços</label>
+    <div class="input-group" ng-repeat="item in endereco">   
+        <input ng-model="item.logradouro" name="endereco" class="form-control">
+        <div>
+            <span class="input-group-text" >principal</span>
+            <input type="checkbox" ng-model="item.principal" class="checkEnderecos" ng-click="check('checkEnderecos')" >
+        </div>
+        <button ng-if="$index != 0" class="btn btn-md btn-danger" ng-click="remove($index)">Remover</button>
+    </div>
+    <button class="btn btn-md btn-primary" ng-click="acao()">+Endereço</button>
+
+
+</div>

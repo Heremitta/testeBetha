@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label>Telefone</label>
+    <div class="input-group" ng-repeat="item in telefone">  
+        <input ng-model="item.numero"  name="telefone" class="form-control" >
+        <div >
+            <span class="input-group-text" >principal</span>
+            <input type="checkbox" ng-model="item.principal" class="checkTelefones" ng-click="check('checkTelefones')">
+        </div>
+        <button ng-if="$index != 0"  class="btn btn-md btn-danger " ng-click="remove($index)">Remover</button>
+    </div>
+    <button class="btn btn-md btn-primary" ng-click="acao()">+Telefone</button>
+</div>

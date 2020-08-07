@@ -1,0 +1,46 @@
+<div class="jumbotron">
+    <p class="alert alert-info" ng-show='mensagem.length'>{{mensagem}}</p>
+    <h1 class="text-center">Projeto Betha</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="funcionarios/novo" class="btn btn-success">Novo Funcionário</a>
+                </span>
+                <input ng-model="filtro" ng-model-options="{debounce:500}" type="text" class="form-control" placeholder="Filtrar">
+            </div>
+        </form>
+    </div><!--fim col-md-12-->
+</div><!--fim row-->
+<div class="row">
+    <meu-painel class="col-md-4 painel-animado"  ng-repeat="funcionario in funcionarios | filter: filtro" titulo="{{funcionario.nome}}">
+        <div >
+            <h2 >Nome</h2>
+            <input ng-module="funcionario.nome" type="text" required value="{{funcionario.nome}}" ng-disabled="isDisabled">
+        </div>
+        <div >
+            <h2>Cpf</h2>
+            <input ng-module="funcionario.cpf" type="text" required value="{{funcionario.cpf}}" disabled>
+        </div>
+        <div >
+            <h2>Data de nascimento</h2>
+            <input ng-module="funcionario.dataNasc" type="date" required value="{{funcionario.dataNasc}}" ng-disabled="isDisabled">
+        </div>
+        <h2>Telefones</h2>
+        <div ng-repeat="telefone in funcionario.telefones" >
+            <h4> {{telefone.principal ? 'telefone principal' : 'telefone secundario' }}</h4>
+            <input type="text" required value="{{telefone.numero}}" ng-disabled="isDisabled">
+        </div>
+        <h2>Endereços</h2>
+        <div ng-repeat="endereco in funcionario.enderecos" >
+            <h4>{{endereco.principal ?'Endereço principal' : 'Endereço secundario'}}</h4>
+            <input type="text" required value="{{endereco.logradouro}}" ng-disabled="isDisabled">
+        </div>
+        <meu-botao-perigo ng-if="isDisabled === true" nome="Remover" acao="remover(funcionario)"></meu-botao-perigo>
+        <button ng-if="isDisabled === false" ng-click="alterarFuncionario(funcionario)" class="btn btn-success btn-block">Alterar</button>
+        <button ng-click="botaoAlterar()" class="btn btn-primary btn-block">Editar</button>
+    </meu-painel>
+</div>
