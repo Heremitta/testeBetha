@@ -1,5 +1,6 @@
 angular.module('projetobetha').controller('FuncionariosController', function($scope,recursoFuncionario, recursoExcluirFuncionario,$rootScope) {
-    if(!$rootScope.logado) window.location.href = 'http://localhost:3000/login';
+    debugger;
+    if($scope.logado) window.location.href = 'http://localhost:3000/login';
     console.log($rootScope.logado)
     $scope.funcionarios = [];
     $scope.telefones = [{ numero:"", principal: true}];

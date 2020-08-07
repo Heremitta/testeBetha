@@ -1,3 +1,4 @@
+var logado = false;
 angular.module('projetobetha', ['minhasDiretivas','ngAnimate','ngRoute','meusServicos'])
 .config(function($routeProvider, $locationProvider){
 

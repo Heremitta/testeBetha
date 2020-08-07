@@ -1,3 +1,4 @@
+debugger
 angular.module('projetobetha').controller('LoginController', function($scope, LoginService ,$rootScope) {
 
     $scope.logado = false;
@@ -10,12 +11,12 @@ angular.module('projetobetha').controller('LoginController', function($scope, Lo
         if($scope.formulario.$valid){
 
             if(LoginService.validaEmail(login.email)){
-                debugger;
                 LoginService.logar(login)
                 .then(function(dados) {
-                    debugger
+                    debugger;
                     $scope.mensagem = dados.mensagem;
                     $scope.logado = dados.logado;
+                    window.location.href = "http://localhost:3000/funcionarios";
                 })
                 .catch(function(dados) {
                     $scope.mensagem = dados.mensagem;
